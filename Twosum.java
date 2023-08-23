@@ -1,28 +1,25 @@
+import java.util.Arrays;
+
 /**
  * Twosum
  */
 public class Twosum {
-    public static void twoSum(int[] nums, int target) {
-        int index1 = 0;
-        int index2 = 0;
-        for (int i = 0; i < nums.length; i++) {
-            int firstNum = nums[i];
-            for (int j = 0; j < nums.length; j++) {
-                int secondNum = nums[j];
-                int _target = firstNum + secondNum;
-                if (_target == target) {
-                    index1 = i;
-                    index2 = j;
-                    break;
+    public static int[] twoSum(int[] nums, int target) {
+        int n = nums.length;
+        for (int i = 0; i < n; i++) {
+            for (int j = i + 1; j < n; j++) {
+                if (nums[i] + nums[j] == target) {
+                    return new int[] { i, j };
                 }
             }
         }
-        System.out.println("[" + index1 + "," + index2 + "]");
+        return new int[] {};
 
     }
 
     public static void main(String[] args) {
-        int nums[] = { 2, 7, 11, 15 };
-        twoSum(nums, 17);
+        int nums[] = { 2, 4, 11, 3 };
+        int res[] = twoSum(nums, 6);
+        System.out.println(Arrays.toString(res));
     }
 }
